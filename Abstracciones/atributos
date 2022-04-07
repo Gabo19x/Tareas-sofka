@@ -1,0 +1,12 @@
+lanzadera: son las que llevan una carga util, otras naves, tienen un gran deposito de combustible
+y se van desarmando mientras el viaje.
+
+Naves no tripuladas: son como satelites, sondas, etc. y su idea es para estudio o ayuda a la humanidad.
+
+Naves tripuladas: son naves hechas para llevar personas al espacio, por algun motivo que se necesite
+a un humano para la tarea.
+
+Nave: peso, combustible, mision. getvariables.
+Lanzadera: carga, destino. getvariables.
+Satelite: proposito. getvariable, comunicacion.
+Tripulada: personal, duracionMision, destino. getvariables, setduracion, llamar a base.

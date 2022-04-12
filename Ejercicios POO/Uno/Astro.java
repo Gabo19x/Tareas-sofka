@@ -1,3 +1,5 @@
+package Uno;
+
 public abstract class Astro{
     private String nombre;
     private String id;
@@ -22,7 +24,7 @@ public abstract class Astro{
         this.gravedad = gravedad;
     }
 
-    public String info(){
+    public void info(){
         System.out.println(
             "Nombre: " + this.nombre + "\nId: " + this.id + 
             "\nMasa: " + this.masa + "\nDiametro: " + this.diametro
@@ -30,7 +32,7 @@ public abstract class Astro{
     }
 
     public double atraccionGravitatoria(double G, Astro astro2, double distancia){
-        double fuerza = (G * this.masa * astro2.masa)/(distancia^2);
+        double fuerza = (G * this.masa * astro2.masa)/(distancia*distancia);
         return fuerza;
     }
 }

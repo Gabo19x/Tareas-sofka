@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*
 *   CLASE Fruta: representa a las frutas.
 *   @author: Gabriel Pinzon
@@ -31,7 +33,7 @@ public class Fruta{
     * FUNCION getColors: retorna el array colors.
     * @return: retorna el array colors.
     */
-    public String getColors(){
+    public ArrayList<String> getColors(){
         return this.colors;
     }
 }

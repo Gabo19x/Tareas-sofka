@@ -31,7 +31,7 @@ public class Pergamino{
     * FUNCION getId: retorna la variable id.
     * @return: retorna la variable id.
     */
-    public String getId(){
+    public int getId(){
         return this.id;
     }
 

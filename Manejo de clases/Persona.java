@@ -1,3 +1,5 @@
+import java.sql.Date;
+
 /*
 *   CLASE Persona: representa a una persona tradicional.
 *   @author: Gabriel Pinzon

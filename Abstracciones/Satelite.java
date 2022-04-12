@@ -1,3 +1,5 @@
+package Abstracciones;
+
 public class Satelite extends Nave{
     
     protected String purpose;

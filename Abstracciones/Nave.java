@@ -1,7 +1,9 @@
+package Abstracciones;
+
 public abstract class Nave{
     protected String weight;
     protected String fuel;
-    private String mission;
+    protected String mission;
 
     public Nave(String weight, String fuel, String mission){
         this.weight = weight;

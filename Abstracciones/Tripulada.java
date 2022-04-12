@@ -1,3 +1,5 @@
+package Abstracciones;
+
 public class Tripulada extends Nave{
     
     protected int personal;

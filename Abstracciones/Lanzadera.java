@@ -1,3 +1,5 @@
+package Abstracciones;
+
 public class Lanzadera extends Nave{
     
     protected String load;

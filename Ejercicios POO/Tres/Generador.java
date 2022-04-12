@@ -1,3 +1,5 @@
+package Tres;
+
 import java.util.Scanner;
 
 public class Generador{
@@ -8,33 +10,35 @@ public class Generador{
         while (a) {
             System.out.println("Seleccione la opcion:");
             System.out.println("1) Organizar metodo burbuja.\n2) Organizar por quick sort.");
-            Scanner scanner = new Scanner(System.in);
-            int eleccion = scanner.nextInt();
-
-            switch (eleccion) {
-                case 1:
-                    numeros = numerosAleatorios();
-                    System.out.println("--- Numeros aleatorios ---");
-                    imprimir(numeros);
-                    numeros = burbuja(numeros);
-                    System.out.println("--- Numeros ordenados ---");
-                    imprimir(numeros);
-                    
-                    a = false;
-                    break;
-                case 2:
-                    numeros = numerosAleatorios();
-                    System.out.println("--- Numeros aleatorios ---");
-                    imprimir(numeros);
-                    quickSort(numeros, 0, (numeros.length - 1));
-                    System.out.println("--- Numeros ordenados ---");
-                    imprimir(numeros);
-                    a = false;
-                    break;
             
-                default:
-                    System.out.println("Seleccion incorrecta. Elija entre ( 1 ) y ( 2 )");
-                    break;
+            try (Scanner scanner = new Scanner(System.in)) {
+                int eleccion = scanner.nextInt();
+
+                switch (eleccion) {
+                    case 1:
+                        numeros = numerosAleatorios();
+                        System.out.println("--- Numeros aleatorios ---");
+                        imprimir(numeros);
+                        numeros = burbuja(numeros);
+                        System.out.println("--- Numeros ordenados ---");
+                        imprimir(numeros);
+                        
+                        a = false;
+                        break;
+                    case 2:
+                        numeros = numerosAleatorios();
+                        System.out.println("--- Numeros aleatorios ---");
+                        imprimir(numeros);
+                        quickSort(numeros, 0, (numeros.length - 1));
+                        System.out.println("--- Numeros ordenados ---");
+                        imprimir(numeros);
+                        a = false;
+                        break;
+                
+                    default:
+                        System.out.println("Seleccion incorrecta. Elija entre ( 1 ) y ( 2 )");
+                        break;
+                }
             }
         }
     }

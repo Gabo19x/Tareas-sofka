@@ -1,5 +1,7 @@
 package Uno;
 
+import java.util.Objects;
+
 public abstract class Astro{
     private String nombre;
     private String id;

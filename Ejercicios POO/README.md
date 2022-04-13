@@ -5,5 +5,6 @@ Dos: contiene un readme sobre la pregunta de ejercicio 2.
 Tres: contiene una clase 'Generador'.
 Cuatro: contiene una clase 'vehiculo' y una clase auxiliar 'App'.
 Cinco: contiene 4 clases que heredan de 'vehiculo' de la carpeta cuatro.
+Seis: contiene una clase main en donde se experimenta con 'Vector'.
 
 # Taller 2-2

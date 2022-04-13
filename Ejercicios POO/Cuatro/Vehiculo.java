@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public abstract class Vehiculo {
     
-    private String nombre;
+    protected String nombre;
     private int pasajeros;
     private int pasajerosAusentes;
     private int ruedas;
@@ -38,6 +38,10 @@ public abstract class Vehiculo {
         System.out.println("------------------------------");
     }
 
+    /** FUNCION lectura10Vehiculos: llama a la funcion crearVehiculo 10 veces para crear
+     *  10 instancias de vehiculo y los devuelve en un array
+     * @return lista un array de objetos vehiculo
+     */
     public ArrayList<Vehiculo> lectura10Vehiculos(){
         ArrayList<Vehiculo> lista = new ArrayList<Vehiculo>();
 
@@ -56,6 +60,9 @@ public abstract class Vehiculo {
         return lista;
     }
 
+    /** FUNCION crearVehiculo: crea un vehiculo pidiendo los datos por teclado.
+     * @return vehiculo.
+     */
     private Vehiculo crearVehiculo(){
         Scanner sc = new Scanner(System.in);
 

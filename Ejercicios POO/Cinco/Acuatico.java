@@ -1,5 +1,6 @@
 package Cinco;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -35,10 +36,32 @@ public class Acuatico extends Vehiculo {
         System.out.println("------------------------------");
     }
 
+    /** FUNCION lectura10Acuaticos: llama a la funcion crearAcuatico 10 veces para crear
+     *  10 instancias y los devuelve en un array
+     * @return lista un array de objetos acuaticos
+     */
+    public ArrayList<Acuatico> lectura10Acuaticos(){
+        ArrayList<Acuatico> lista = new ArrayList<Acuatico>();
+
+        for (int i = 0; i < 10; i++) {
+            Acuatico v;
+            v = crearAcuatico();
+            lista.add(v);
+        }
+
+        System.out.println("---                   ---");
+        for (int i = 0; i < lista.size(); i++) {
+            lista.get(i).info();
+        }
+        System.out.println("---                   ---");
+
+        return lista;
+    }
+
     /** FUNCION crearAcuatico: crea un vehiculo acuatico pidiendo los datos por teclado.
      * @return vehiculo.
      */
-    public Vehiculo crearAcuatico(){
+    public Acuatico crearAcuatico(){
         Scanner sc = new Scanner(System.in);
 
         String nombre;

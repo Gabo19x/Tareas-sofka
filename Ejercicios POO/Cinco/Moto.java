@@ -1,5 +1,6 @@
 package Cinco;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -30,10 +31,32 @@ public class Moto extends Vehiculo {
         System.out.println("------------------------------");
     }
 
+    /** FUNCION lectura10Motos: llama a la funcion crearMoto 10 veces para crear
+     *  10 instancias y los devuelve en un array
+     * @return lista un array de objetos Moto
+     */
+    public ArrayList<Moto> lectura10Motos(){
+        ArrayList<Moto> lista = new ArrayList<Moto>();
+
+        for (int i = 0; i < 10; i++) {
+            Moto v;
+            v = crearMoto();
+            lista.add(v);
+        }
+
+        System.out.println("---                   ---");
+        for (int i = 0; i < lista.size(); i++) {
+            lista.get(i).info();
+        }
+        System.out.println("---                   ---");
+
+        return lista;
+    }
+
     /** FUNCION crearMoto: crea una moto pidiendo los datos por teclado.
      * @return moto.
      */
-    public Vehiculo crearMoto(){
+    public Moto crearMoto(){
         Scanner sc = new Scanner(System.in);
 
         String nombre;

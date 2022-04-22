@@ -1,5 +1,6 @@
 package Cinco;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -30,10 +31,32 @@ public class Bicicleta extends Vehiculo {
         System.out.println("------------------------------");
     }
 
+    /** FUNCION lectura10Bicicletas: llama a la funcion crearBicicleta 10 veces para crear
+     *  10 instancias y los devuelve en un array
+     * @return lista un array de objetos bicicleta
+     */
+    public ArrayList<Bicicleta> lectura10Bicicletas(){
+        ArrayList<Bicicleta> lista = new ArrayList<Bicicleta>();
+
+        for (int i = 0; i < 10; i++) {
+            Bicicleta v;
+            v = crearBicicleta();
+            lista.add(v);
+        }
+
+        System.out.println("---                   ---");
+        for (int i = 0; i < lista.size(); i++) {
+            lista.get(i).info();
+        }
+        System.out.println("---                   ---");
+
+        return lista;
+    }
+    
     /** FUNCION crearBicicleta: crea una bicicleta pidiendo los datos por teclado.
      * @return bicicleta.
      */
-    public Vehiculo crearBicicleta(){
+    public Bicicleta crearBicicleta(){
         Scanner sc = new Scanner(System.in);
 
         String nombre;

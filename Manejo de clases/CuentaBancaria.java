@@ -29,7 +29,7 @@ public class CuentaBancaria{
     * FUNCION getActived: retorna la variable actived.
     * @return: retorna la variable actived.
     */
-    public String getActived(){
+    public boolean getActived(){
         return this.activated;
     }
 }

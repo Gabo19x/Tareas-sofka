@@ -1,12 +1,15 @@
 var {Router} = require('express');
 var router = Router();
 
-router.route('/')
-  .get((req, res) => res.json({men: '|GET| Ejemplo ruta'}))
-  .post((req, res) => res.json({men: '|POST| Ejemplo ruta'}));
+const {getEjemplo, crearEjemplo} = require('../controller/ejemploController');
 
-router.route('/:id')
-.delete((req, res) => res.json({men: '|DELETE| Ejemplo ruta'}));
+router.route('/ejemplo')
+  .get(getEjemplo)
+  .post(crearEjemplo);
+
+router.route('/ejemplo/:id')
+  .get((req, res) => res.json({men: '|GET| Ejemplo ruta'}))
+  .delete((req, res) => res.json({men: '|DELETE| Ejemplo ruta'}));
  
 /** Peticiones
  * .get() -> para obtener un dato.

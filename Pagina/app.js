@@ -25,8 +25,8 @@ app.use(express.json());
 //         edad: e, 
 //     });
 // });
-// app.get('/', require('./routes/funcionesJuego'));
-// app.use('/juego', require('./routes/juego'));
+app.use('/', require('./routes/funcionesJuego'));
+app.use('/juego', require('./routes/juego'));
 
 app.use('/ejemplo', require('./routes/ejemplo'));
 // app.get('/test', (req, res) => res.send('Ruta de test'));

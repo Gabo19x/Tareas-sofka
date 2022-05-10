@@ -8,11 +8,14 @@ const jugadorModelo = require('../models/modeloJugador');
  */
 cont.crearJuego = ( async (req, res) => {
     const {id, jugadores, ganador} = req.body;
-    
 
     const juego = new juegoModelo({
         id,
-        jugadores: [],
+        jugadores: [
+            {idj: 1, nombre: "Juan", apuesta: 0},
+            {idj: 2, nombre: "Armando", apuesta: 0},
+            {idj: 3, nombre: "Pedro", apuesta: 0},
+        ],
     });
 
     await juego.save();
@@ -28,6 +31,14 @@ cont.crearJuego = ( async (req, res) => {
 //     });
 //     await j.save();
 // });
+
+/** FUNCION obtenerJuegos 
+ * obtiene todos los juegos.
+ */
+ cont.obtenerJuegos = async (req, res) => {
+    const js = await juegoModelo.find();
+    res.json(js);
+};
 
 /** FUNCION obtenerJuego 
  * obtiene un juego por id.

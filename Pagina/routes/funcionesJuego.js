@@ -1,15 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-const {crearJuego, empezarJuego} = require('../controller/juegoController');
+const controller = require('../controller/juegoController');
+
+router.route('/')
+    .get(function (req, res) {
+        controller.obtenerJuegos;
+    });
 
 router.route('/crear')
-    .get(console.log("|GET| en crear"))
-    .post(crearJuego);
+    .post(function(req, res) {
+        controller.crearJuego;        
+    });
   
 router.route('/empezar')
-    .get(console.log("|GET| en empezar"))
-    .post(empezarJuego);
+    .post(function (req, res) {
+        controller.empezarJuego;        
+    });
 
 
 module.exports = router;

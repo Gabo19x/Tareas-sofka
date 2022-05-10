@@ -8,10 +8,10 @@ const juegoSchema = new Schema({
         type: String
     },
     jugadores: {
-        type: String,
+        type: [String],
     },
     ganador: {
-        type: String,
+        type: Object,
     }
 });
 

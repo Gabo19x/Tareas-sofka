@@ -1,0 +1,36 @@
+<div class="Grid">
+    <div>
+        <table class="Tabla">
+            <thead>
+                <h3> Juegos existentes</h3>
+                <tr>
+                    <th>Id</th>
+                    <th>Jugador 1</th>
+                    <th>Jugador 2</th>
+                    <th>Jugador 3</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <form class="Formulario">
+            <h3>Empezar juego</h3>
+            <fieldset>
+                <label class="Label" for="id">ID juego</label>
+                <input class="Input" type="text" name="id" id="id" placeholder="Id" min="1" required>
+            </fieldset>
+            <input class="EmpezarBoton Boton" type="submit" value="Empezar" action="ganador">
+        </form>
+
+        <a href="crear">Crear juego</a>
+    </div>
+</div>
+</body>
+
+<script src="../public/js/inicio.js"></script>
+
+</html>

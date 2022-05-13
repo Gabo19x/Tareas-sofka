@@ -1,17 +1,16 @@
-const { json } = require('express');
-const { Schema, model} = require('mongoose');
+const { Schema, model } = require('mongoose');
 const db = require('../database');
 const modeloJugador = require('./modeloJugador');
 
 const juegoSchema = new Schema({
     id: {
-        type: String
+        type: Number
     },
-    jugadores: {
-        type: [String],
-    },
+    jugadores: [
+        { idj: Number, nombre: String, apuesta: Number },
+    ],
     ganador: {
-        type: Object,
+        idj: String, nombre: String, apuesta: Number,
     }
 });
 

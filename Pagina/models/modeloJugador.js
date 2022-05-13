@@ -1,4 +1,3 @@
-const { Int32 } = require('mongodb');
 const { Schema, model} = require('mongoose');
 const db = require('../database');
 
@@ -12,7 +11,7 @@ const jugadorSchema = new Schema({
         trim: true
     },
     apuesta : {
-        type: String, 
+        type: Number, 
     }
 });
 

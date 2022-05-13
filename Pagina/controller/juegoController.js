@@ -6,80 +6,92 @@ const jugadorModelo = require('../models/modeloJugador');
 /** FUNCION crearJuego 
  * crea un juego y a 3 jugadores.
  */
-cont.crearJuego = ( async (req, res) => {
-    const {id, jugadores, ganador} = req.body;
+cont.crearJuego = (async (req, res) => {
+    const { valorId, jugadores, ganador } = req.body;
 
     const juego = new juegoModelo({
-        id,
-        jugadores: [
-            {idj: 1, nombre: "Juan", apuesta: 0},
-            {idj: 2, nombre: "Armando", apuesta: 0},
-            {idj: 3, nombre: "Pedro", apuesta: 0},
-        ],
+        id: valorId,
+        jugadores: jugadores,
+        ganador,
     });
 
-    await juego.save();
-});
+    await juego.save()
+        .catch(error => console.log(error));
 
-/** FUNCION crearJugador 
- * crea un jugador.
- */
-// cont.crearJugador = ( async (req, res) => {
-//     const {idj, nombre} = req.body;
-//     const j = new jugadorModelo({
-//         idj, nombre,
-//     });
-//     await j.save();
-// });
+    console.log({ valorId, jugadores, ganador });
+});
 
 /** FUNCION obtenerJuegos 
  * obtiene todos los juegos.
  */
- cont.obtenerJuegos = async (req, res) => {
+cont.obtenerJuegos = (async (req, res) => {
     const js = await juegoModelo.find();
     res.json(js);
-};
+    console.log("|Obtenido todos los juegos|");
+});
 
 /** FUNCION obtenerJuego 
  * obtiene un juego por id.
  */
-cont.obtenerJuego = async (req, res) => {
+cont.obtenerJuego = (async (req, res) => {
     const j = await juegoModelo.findById(req.params.id);
-    res.json(j);
-};
+    // res.json(j);
+    console.log("|Obtenido juego|");
+});
 
 /** FUNCION obtenerGanador 
  * obtiene un ganador del juego
  */
-cont.obtenerGanador = async (req, res) => {
+cont.obtenerGanador = (async (req, res) => {
     const j = await juegoModelo.findById(req.params.id);
     const g = j.ganador;
-    if(g == null){
-        res.json({message: 'No hay ganador'})
-    }else{
-        res.json(g);
+
+    if (g == null) {
+        res.json({ message: 'No hay ganador' })
+    } else {
+        // res.json(g);
     }
-};
+    console.log("|Obtenido el ganador|");
+});
 
 /** FUNCION empezarJuego 
  * asigna un numero por jugador
  */
-cont.empezarJuego = async (req, res) => {
+cont.empezarJuego = (async (req, res) => {
     const j = await juegoModelo.findById(req.params.id);
-    const p1 = j.jugadores[0];
-    const p2 = j.jugadores[1];
-    const p3 = j.jugadores[2];
+    console.log(j);
+    j.jugadores.forEach(ele => {
+        let num = numero();
+        ele.apuesta = num;
+    });
 
-    let num = numero();
-    p1.apuesta = num.toString();
-    num = numero();
-    p2.apuesta = num.toString();
-    num = numero();
-    p3.apuesta = num.toString();
-    
-    res.json(j);
-};
+    let m = 0;
+    let gan;
+    j.jugadores.forEach(p => {
+
+        if (p.apuesta > m) {
+            m = p.apuesta;
+            gan = p;
+        }
+
+    });
+
+    j.ganador = gan;
+
+    // res.json(j);
+    console.log("|Se empezo el juego|");
+});
 
 function numero() {
     return Math.floor(Math.random() * (7 - 1)) + 1;
 }
+
+/** FUNCION eliminarEjemploId 
+* obtiene un juego por id y lo elimina.
+*/
+cont.eliminarJuego = (async (req, res, err) => {
+    await juegoModelo.findByIdAndDelete(req.params.id, req.body);
+    // res.json({message: "Juego eliminado"});
+});
+
+module.exports = cont;

@@ -4,7 +4,7 @@
  */
 fetch('http://localhost:3000/juego/inicio', {
     method: 'GET',
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/javascript;charset=utf-8" },
 })
     .then(response => response.json())
     .then(data => MostrarData(data, 'tabla'))
@@ -35,7 +35,7 @@ empezar.addEventListener('submit', (evento) => {
 
     fetch(`http://localhost:3000/juego/empezar`, {
         method: 'GET',
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/javascript;charset=utf-8" },
         // body: valorId
     }).then(response => response.json())
         .then(data => juego = req.param.id)
@@ -48,7 +48,7 @@ empezar.addEventListener('submit', (evento) => {
  */
 fetch(`http://localhost:3000/juego/ganador`, {
     method: 'GET',
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/javascript;charset=utf-8" },
     // body: { juego }
 }).then(response => response.json())
     .then(data => MostrarDataCompleta(data, 'tablaJuego'))
@@ -73,7 +73,7 @@ const MostrarDataCompleta = (data, c) => {
  */
 fetch(`http://localhost:3000/juego/ganador`, {
     method: 'GET',
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/javascript;charset=utf-8" },
 }).then(response => response.json())
     .then(data => MostrarDataGanador(data, 'tablaGandor'))
     .catch(error => console.log(error));
